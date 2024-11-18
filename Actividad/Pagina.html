@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Reciclaje</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>¡Recicla los objetos correctamente!</h1>
+        <div class="bins">
+            <div class="bin" id="yellow-bin" data-type="plastic">Contenedor Amarillo<br>(Plástico, Latas)</div>
+            <div class="bin" id="blue-bin" data-type="paper">Contenedor Azul<br>(Papel, Cartón)</div>
+            <div class="bin" id="green-bin" data-type="glass">Contenedor Verde<br>(Vidrio)</div>
+            <div class="bin" id="red-bin" data-type="hazardous">Contenedor Rojo<br>(Desechos peligrosos)</div>
+            <div class="bin" id="brown-bin" data-type="organic">Contenedor Marrón <br>(Orgánico)</div>
+            <div class="bin" id="gray-bin" data-type="general">Contenedor Gris<br>(Residuos generales)</div>
+        </div>
+        <div class="items">
+            <!-- Objetos para reciclar -->
+            <img src="https://png.pngtree.com/png-clipart/20221220/original/pngtree-banana-peel-illustration-png-image_8785767.png
+" alt="Cáscara de plátano" class="draggable" data-type="organic">
+            <img src="https://png.pngtree.com/png-clipart/20230930/original/pngtree-plastic-bottle-clipart-png-image_13022318.png
+" alt="Botella plástica" class="draggable" data-type="plastic">
+            <img src="https://static.vecteezy.com/system/resources/thumbnails/041/444/081/small/business-newspaper-isolated-daily-newspaper-mock-up-concept-transparency-with-shadow-png.png" alt="Periódico" class="draggable" data-type="paper">
+            <img src="https://img.icons8.com/color/48/beer-bottle.png" alt="Botella de vidrio" class="draggable" data-type="glass">
+            <img src="https://static.vecteezy.com/system/resources/previews/009/380/036/non_2x/realistic-paint-can-clipart-design-illustration-free-png.png" alt="Lata de pintura" class="draggable" data-type="hazardous">
+            <img src="https://images.vexels.com/content/264723/preview/cartoon-paperboard-box-ec33fa.png" alt="Caja de pizza" class="draggable" data-type="paper">
+            <img src="https://cdn-icons-png.flaticon.com/512/5198/5198836.png" alt="Lata de refresco" class="draggable" data-type="plastic">
+            <img src="https://images.vexels.com/content/264720/preview/bitten-apple-trash-e66402.png" alt="Restos de manzana" class="draggable" data-type="organic">
+            <img src="https://img.icons8.com/color/48/broken-bottle.png" alt="Vidrio roto" class="draggable" data-type="glass">
+            <img src="https://lh4.googleusercontent.com/proxy/6j84MKW_cM57qCezYOAQPAGRwMVT5RZWqpevlSWJVCr_eqgEEQO_eKmo6iMZVGV_MB1oguXYrz6hIi-daVXJ0aEZ4mOQaVQjyXHvUZL3cPmP" alt="Batería" class="draggable" data-type="hazardous">
+            <img src="https://img.icons8.com/color/48/toilet-paper.png" alt="Papel higiénico usado" class="draggable" data-type="general">
+        </div>
+        <div id="message"></div>
+        <button id="restart-btn" onclick="restartGame()">Reiniciar</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
