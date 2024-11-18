@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluación sobre Reciclaje</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Evaluación de Reciclaje</h1>
+    </header>
+
+    <main class="container">
+        <form id="quizForm">
+            <ol>
+                <li>¿Qué materiales van en el contenedor azul?
+                    <ul>
+                        <li><input type="radio" name="q1" value="incorrecto"> Vidrio</li>
+                        <li><input type="radio" name="q1" value="correcto"> Papel y cartón</li>
+                        <li><input type="radio" name="q1" value="incorrecto"> Plástico</li>
+                    </ul>
+                </li>
+                <li>¿Cuál es la “R” que representa usar algo nuevamente?
+                    <ul>
+                        <li><input type="radio" name="q2" value="incorrecto"> Reciclar</li>
+                        <li><input type="radio" name="q2" value="incorrecto"> Reducir</li>
+                        <li><input type="radio" name="q2" value="correcto"> Reutilizar</li>
+                    </ul>
+                </li>
+                <li>¿Qué no debemos depositar en el contenedor verde?
+                    <ul>
+                        <li><input type="radio" name="q3" value="correcto"> Porcelana</li>
+                        <li><input type="radio" name="q3" value="incorrecto"> Botellas de vidrio</li>
+                        <li><input type="radio" name="q3" value="incorrecto"> Frascos</li>
+                    </ul>
+                </li>
+                <li>¿Qué tipo de residuo se debe tirar en el contenedor marrón?
+                    <ul>
+                        <li><input type="radio" name="q4" value="incorrecto"> Cristales</li>
+                        <li><input type="radio" name="q4" value="correcto"> Restos de comida</li>
+                        <li><input type="radio" name="q4" value="incorrecto"> Envoltorios de plástico</li>
+                    </ul>
+                </li>
+                <li>¿Qué contenedor está destinado para los residuos que no tienen un sistema de recogida específico?
+                    <ul>
+                        <li><input type="radio" name="q5" value="correcto"> Contenedor gris</li>
+                        <li><input type="radio" name="q5" value="incorrecto"> Contenedor amarillo</li>
+                        <li><input type="radio" name="q5" value="incorrecto"> Contenedor verde</li>
+                    </ul>
+                </li>
+                <li>¿Qué tipo de material podemos depositar en el contenedor amarillo?
+                    <ul>
+                        <li><input type="radio" name="q6" value="correcto"> Botellas de plástico</li>
+                        <li><input type="radio" name="q6" value="incorrecto"> Papel</li>
+                        <li><input type="radio" name="q6" value="incorrecto"> Vidrio</li>
+                    </ul>
+                </li>
+                <li>¿Qué residuo no debe ir en el contenedor azul?
+                    <ul>
+                        <li><input type="radio" name="q7" value="correcto"> Servilletas sucias</li>
+                        <li><input type="radio" name="q7" value="incorrecto"> Cajas de zapatos</li>
+                        <li><input type="radio" name="q7" value="incorrecto"> Periódicos</li>
+                    </ul>
+                </li>
+                <li>¿Dónde se deben depositar las pilas usadas?
+                    <ul>
+                        <li><input type="radio" name="q8" value="incorrecto"> Contenedor gris</li>
+                        <li><input type="radio" name="q8" value="correcto"> Contenedor de pilas</li>
+                        <li><input type="radio" name="q8" value="incorrecto"> Contenedor azul</li>
+                    </ul>
+                </li>
+                <li>¿Qué tipo de reciclaje implica la creación de abono natural?
+                    <ul>
+                        <li><input type="radio" name="q9" value="correcto"> Compostaje</li>
+                        <li><input type="radio" name="q9" value="incorrecto"> Reciclaje de vidrio</li>
+                        <li><input type="radio" name="q9" value="incorrecto"> Reciclaje de metales</li>
+                    </ul>
+                </li>
+                <li>¿Cuál de los siguientes NO es un contenedor especial de residuos?
+                    <ul>
+                        <li><input type="radio" name="q10" value="incorrecto"> Contenedor de ropa</li>
+                        <li><input type="radio" name="q10" value="incorrecto"> Contenedor de medicamentos</li>
+                        <li><input type="radio" name="q10" value="correcto"> Contenedor de plástico</li>
+                    </ul>
+                </li>
+            </ol>
+            <button type="button" onclick="calcularResultado()">Enviar</button>
+        </form>
+
+        <p id="resultado"></p>
+    </main>
+
+    <script>
+        function calcularResultado() {
+            const respuestas = document.querySelectorAll('input[type="radio"]:checked');
+            let correctas = 0;
+            
+            respuestas.forEach(respuesta => {
+                if (respuesta.value === "correcto") correctas++;
+            });
+            
+            // Deshabilitar todos los botones de opción después de enviar
+            const opciones = document.querySelectorAll('input[type="radio"]');
+            opciones.forEach(opcion => {
+                opcion.disabled = true;
+            });
+    
+            document.getElementById("resultado").innerText = `Obtuviste ${correctas} de ${respuestas.length} respuestas correctas.`;
+        }
+    
+        function reiniciarEvaluacion() {
+            document.getElementById("quizForm").reset();
+            document.getElementById("resultado").innerText = "";
+    
+            // Habilitar todos los botones de opción al reiniciar
+            const opciones = document.querySelectorAll('input[type="radio"]');
+            opciones.forEach(opcion => {
+                opcion.disabled = false;
+            });
+        }
+    </script>
+
+    <button type="button" onclick="reiniciarEvaluacion()">Reiniciar</button>
+</body>
+</html>
